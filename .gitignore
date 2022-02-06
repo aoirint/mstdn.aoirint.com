@@ -2,5 +2,4 @@
 /public
 /redis
 /.env.production
-/.env
 
