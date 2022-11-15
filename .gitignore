@@ -1,5 +1,6 @@
 /postgres
 /public
 /redis
+/backups
 /.env.production
 
