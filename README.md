@@ -5,7 +5,7 @@
 ```shell
 docker compose down
 docker compose up -d db
-docker compose exec db pg_dump -Fc -U mastodon mastodon > "postgres_$(date '+%Y-%m-%d_%H-%M-%S').dump"
+docker compose exec db pg_dump -Fc -U mastodon mastodon > "backups/postgres_$(date '+%Y-%m-%d_%H-%M-%S').dump"
 ```
 
 ## Restore DB
