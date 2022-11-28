@@ -3,5 +3,6 @@
 /redis
 /elasticsearch
 /backups
+/logs
 /.env.production
 
