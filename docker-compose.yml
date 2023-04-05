@@ -97,11 +97,12 @@ services:
 
   nginx:
     image: nginx:latest
+    restart: always
+    networks:
+      - external_network
     volumes:
       - ./nginx_templates:/etc/nginx/templates
       - ${NGINX_LOG_DIR:-}:/logs
-    networks:
-      - external_network
 
   cloudflared:
     image: cloudflare/cloudflared:latest
