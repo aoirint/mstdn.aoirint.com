@@ -95,10 +95,20 @@ services:
     volumes:
       - ./public/system:/mastodon/public/system
 
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx_templates:/etc/nginx/templates
+      - ${NGINX_LOG_DIR:-}:/logs
+    networks:
+      - external_network
+
   cloudflared:
     image: cloudflare/cloudflared:latest
     command: tunnel run
     restart: always
+    networks:
+      - external_network
     environment:
       TUNNEL_TOKEN: ${CLOUDFLARED_TUNNEL_TOKEN:-}
 
