@@ -6,4 +6,4 @@
 /logs
 /.env.production
 /.env*
-
+/volumes
