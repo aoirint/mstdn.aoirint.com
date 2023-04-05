@@ -10,7 +10,7 @@ services:
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "mastodon", "-D", "mastodon"]
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - ./volumes/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: mastodon
       POSTGRES_DB: mastodon
@@ -24,7 +24,7 @@ services:
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
     volumes:
-      - ./redis:/data
+      - ./volumes/redis:/data
 
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.6.2
@@ -39,7 +39,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
     volumes:
-      - ./elasticsearch:/usr/share/elasticsearch/data
+      - ./volumes/elasticsearch:/usr/share/elasticsearch/data
     ulimits:
       memlock:
         soft: -1
@@ -62,7 +62,7 @@ services:
       - redis
       - es
     volumes:
-      - ./public/system:/mastodon/public/system
+      - ./volumes/public/system:/mastodon/public/system
 
   streaming:
     build: .
@@ -93,7 +93,7 @@ services:
       - external_network
       - internal_network
     volumes:
-      - ./public/system:/mastodon/public/system
+      - ./volumes/public/system:/mastodon/public/system
 
   nginx:
     image: nginx:latest
