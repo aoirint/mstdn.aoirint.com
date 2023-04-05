@@ -5,4 +5,5 @@
 /backups
 /logs
 /.env.production
+/.env*
 
