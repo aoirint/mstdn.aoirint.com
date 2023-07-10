@@ -84,55 +84,46 @@ server {
   # then needed must replace line `try_files $uri =404;` with `try_files $uri @proxy;`.
   location = /sw.js {
     add_header Cache-Control "public, max-age=604800, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/assets/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/avatars/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/emoji/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/headers/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/packs/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/shortcuts/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/sounds/ {
     add_header Cache-Control "public, max-age=2419200, must-revalidate";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     try_files $uri @proxy;
   }
 
   location ~ ^/system/ {
     add_header Cache-Control "public, max-age=2419200, immutable";
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
     add_header X-Content-Type-Options nosniff;
     add_header Content-Security-Policy "default-src 'none'; form-action 'none'";
     try_files $uri @proxy;
@@ -142,7 +133,7 @@ server {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Proto https;
     proxy_set_header Proxy "";
 
     proxy_pass http://streaming;
@@ -152,8 +143,6 @@ server {
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection $connection_upgrade;
 
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains";
-
     tcp_nodelay on;
   }
 
@@ -161,7 +150,7 @@ server {
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Proto https;
     proxy_set_header Proxy "";
     proxy_pass_header Server;
 
