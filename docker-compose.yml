@@ -2,8 +2,8 @@ version: '3.8'
 services:
 
   db:
-    restart: always
     image: postgres:14-alpine
+    restart: always
     shm_size: 256mb
     networks:
       - internal_network
@@ -17,8 +17,8 @@ services:
       POSTGRES_PASSWORD: mastodon
 
   redis:
-    restart: always
     image: redis:7-alpine
+    restart: always
     networks:
       - internal_network
     healthcheck:
@@ -74,7 +74,6 @@ services:
       - ./volumes/public/system:/mastodon/public/system
 
   streaming:
-    build: .
     image: ghcr.io/mastodon/mastodon:v4.2.0
     restart: always
     env_file: .env.production
