@@ -25,7 +25,8 @@ log_format json  escape=json '{'
   '"http_referer": "$http_referer", '
   '"http_user_agent": "$http_user_agent",'
   '"http_x_forwarded_for": "$http_x_forwarded_for",'
-  '"http_x_forwarded_proto": "$http_x_forwarded_proto"'
+  '"http_x_forwarded_proto": "$http_x_forwarded_proto",'
+  '"http_cf_connecting_ip": "$http_cf_connecting_ip"'
 '}';
 
 
