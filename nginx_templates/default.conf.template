@@ -65,6 +65,9 @@ server {
   listen 80;
   listen [::]:80;
 
+  access_log /var/log/nginx/access.log json;
+  error_log /var/log/nginx/error.log;
+
   access_log /logs/access.log combined;
   access_log /logs/access_main.log main;
   access_log /logs/access_json.log json;
