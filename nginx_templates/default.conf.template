@@ -10,7 +10,7 @@ server_tokens off;
 
 # https://kakakakakku.hatenablog.com/entry/2019/11/25/134646
 log_format json  escape=json '{'
-  '"time": "$time_local",'
+  '"time": "$time_iso8601",'
   '"remote_addr": "$remote_addr",'
   '"host": "$host",'
   '"remote_user": "$remote_user",'
