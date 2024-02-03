@@ -1,5 +1,11 @@
 # mstdn.aoirint.com
 
+## アカウント作成
+
+```shell
+sudo docker compose exec web bin/tootctl accounts create example_acct --email mail@example.com --confirmed
+```
+
 ## Backup DB
 
 ```shell
