@@ -1,5 +1,7 @@
 # mstdn.aoirint.com
 
+- [CLI ドキュメント](https://docs.joinmastodon.org/admin/tootctl/)
+
 ## アカウント作成
 
 ```shell
