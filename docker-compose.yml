@@ -64,7 +64,7 @@ services:
     logging:
       driver: fluentd
       options:
-        tag: docker.mstdn_aoirint_com.redis.{{.ID}}
+        tag: docker.mstdn_aoirint_com.es.{{.ID}}
         fluentd-async: "true"
 
   web:
