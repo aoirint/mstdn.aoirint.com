@@ -81,8 +81,6 @@ services:
       - db
       - redis
       - es
-    volumes:
-      - ./volumes/public/system:/mastodon/public/system
     logging:
       driver: fluentd
       options:
@@ -119,8 +117,6 @@ services:
     networks:
       - external_network
       - internal_network
-    volumes:
-      - ./volumes/public/system:/mastodon/public/system
     logging:
       driver: fluentd
       options:
