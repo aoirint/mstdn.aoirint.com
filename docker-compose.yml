@@ -35,7 +35,7 @@ services:
         fluentd-async: "true"
 
   es:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.1
     restart: always
     environment:
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g -Des.enforce.bootstrap.checks=true"
