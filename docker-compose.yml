@@ -81,6 +81,8 @@ services:
       - db
       - redis
       - es
+    extra_hosts:
+      - "minio.aoirint.com:${MINIO_AOIRINT_COM_IP_ADDRESS:?}"
     logging:
       driver: fluentd
       options:
@@ -100,6 +102,8 @@ services:
     depends_on:
       - db
       - redis
+    extra_hosts:
+      - "minio.aoirint.com:${MINIO_AOIRINT_COM_IP_ADDRESS:?}"
     logging:
       driver: fluentd
       options:
@@ -117,6 +121,8 @@ services:
     networks:
       - external_network
       - internal_network
+    extra_hosts:
+      - "minio.aoirint.com:${MINIO_AOIRINT_COM_IP_ADDRESS:?}"
     logging:
       driver: fluentd
       options:
