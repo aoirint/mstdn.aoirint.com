@@ -147,7 +147,7 @@ services:
         fluentd-async: "true"
 
   cloudflared:
-    image: cloudflare/cloudflared:2024.6.0
+    image: cloudflare/cloudflared:2024.6.1
     command: tunnel run
     restart: always
     networks:
